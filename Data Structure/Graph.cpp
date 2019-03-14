@@ -73,15 +73,9 @@ public:
 			
 			if(e.start->parentId != e.end->parentId)
 			{
-				if(e.start->id < e.end->id)
-				{
-					e.start->setParent(e.start->id);
-					e.end->setParent(e.start->id);
-				}
-				else
-				{
-					
-				}
+				int uf = min(e.start->id, e.end->id);
+				e.start->setParent(uf);
+				e.end->setParent(uf);
 			}
 
 			pq.pop();
